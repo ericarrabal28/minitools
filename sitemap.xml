@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/</loc>
+    </url>
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/porcentaje.html</loc>
+    </url>
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/notas.html</loc>
+    </url>
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/edad.html</loc>
+    </url>
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/privacidad.html</loc>
+    </url>
+
+    <url>
+        <loc>https://TU-DIRECCION-WEB/contacto.html</loc>
+    </url>
+
+</urlset>

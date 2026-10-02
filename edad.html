@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de edad exacta online | MiniTools</title>
+
+<meta name="description"
+content="Calcula tu edad exacta en años, meses y días y descubre cuánto falta para tu próximo cumpleaños.">
+
+<link rel="stylesheet"
+      href="assets/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<a href="index.html" class="logo">
+<span>MT</span>
+MiniTools
+</a>
+
+<nav>
+
+<a href="porcentaje.html">
+Porcentajes
+</a>
+
+<a href="notas.html">
+Notas
+</a>
+
+<a href="edad.html">
+Edad
+</a>
+
+</nav>
+
+</header>
+
+
+
+<main class="tool-page">
+
+
+<a href="index.html" class="back">
+← Volver a herramientas
+</a>
+
+
+<section class="tool-hero">
+
+<div class="badge">
+CALCULADORA
+</div>
+
+<h1>
+Calculadora de edad
+</h1>
+
+<p>
+Introduce tu fecha de nacimiento y calcula tu edad
+exacta y cuándo será tu próximo cumpleaños.
+</p>
+
+</section>
+
+
+
+<section class="calculator">
+
+
+<h2>
+¿Cuántos años tienes?
+</h2>
+
+
+<label>
+Fecha de nacimiento
+</label>
+
+<input
+id="fechaNacimiento"
+type="date"
+>
+
+
+<button
+class="calc-button"
+onclick="calcularEdad()"
+>
+
+Calcular edad
+
+</button>
+
+
+<div
+class="result"
+id="resultadoEdad"
+>
+
+Introduce tu fecha de nacimiento.
+
+</div>
+
+
+<h2>
+Próximo cumpleaños
+</h2>
+
+
+<div
+class="result"
+id="resultadoCumple"
+>
+
+Calcularemos cuándo será tu próximo cumpleaños.
+
+</div>
+
+
+</section>
+
+
+
+<section class="content">
+
+
+<h2>
+¿Cómo funciona la calculadora de edad?
+</h2>
+
+<p>
+Introduce tu fecha de nacimiento y la calculadora
+determinará cuántos años, meses y días tienes.
+</p>
+
+<p>
+También calcula cuánto tiempo falta para tu
+próximo cumpleaños.
+</p>
+
+
+<h2>
+¿La calculadora guarda mi fecha de nacimiento?</h2>
+
+<p>
+No. El cálculo se realiza directamente en tu
+navegador y no necesitas crear una cuenta.
+</p>
+
+
+<h2>
+Otras herramientas
+</h2>
+
+
+<div class="links">
+
+<a href="porcentaje.html">
+Calculadora de porcentajes →
+</a>
+
+<a href="notas.html">
+Calculadora de notas →
+</a>
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<span>
+© 2026 MiniTools
+</span>
+
+<div>
+
+<a href="privacidad.html">
+Privacidad
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+
+function calcularEdad() {
+
+
+let fechaTexto =
+document.getElementById("fechaNacimiento").value;
+
+
+if (!fechaTexto) {
+
+document.getElementById("resultadoEdad")
+.innerHTML =
+"Selecciona tu fecha de nacimiento.";
+
+document.getElementById("resultadoCumple")
+.innerHTML =
+"Selecciona tu fecha de nacimiento.";
+
+return;
+
+}
+
+
+let nacimiento =
+new Date(fechaTexto + "T00:00:00");
+
+
+let hoy =
+new Date();
+
+
+if (nacimiento > hoy) {
+
+document.getElementById("resultadoEdad")
+.innerHTML =
+"La fecha de nacimiento no puede estar en el futuro.";
+
+return;
+
+}
+
+
+let años =
+hoy.getFullYear() -
+nacimiento.getFullYear();
+
+
+let meses =
+hoy.getMonth() -
+nacimiento.getMonth();
+
+
+let dias =
+hoy.getDate() -
+nacimiento.getDate();
+
+
+if (dias < 0) {
+
+meses--;
+
+let diasMesAnterior =
+new Date(
+hoy.getFullYear(),
+hoy.getMonth(),
+0
+).getDate();
+
+dias += diasMesAnterior;
+
+}
+
+
+if (meses < 0) {
+
+años--;
+
+meses += 12;
+
+}
+
+
+document.getElementById("resultadoEdad")
+.innerHTML =
+
+"Tienes <strong>" +
+años +
+" años, " +
+meses +
+" meses y " +
+dias +
+" días</strong>.";
+
+
+
+let proximoCumple =
+new Date(
+hoy.getFullYear(),
+nacimiento.getMonth(),
+nacimiento.getDate()
+);
+
+
+if (proximoCumple <= hoy) {
+
+proximoCumple =
+new Date(
+hoy.getFullYear() + 1,
+nacimiento.getMonth(),
+nacimiento.getDate()
+);
+
+}
+
+
+let diferencia =
+proximoCumple - hoy;
+
+
+let diasRestantes =
+Math.ceil(
+diferencia /
+(1000 * 60 * 60 * 24)
+);
+
+
+document.getElementById("resultadoCumple")
+.innerHTML =
+
+"Faltan aproximadamente <strong>" +
+diasRestantes +
+" días</strong> para tu próximo cumpleaños.";
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

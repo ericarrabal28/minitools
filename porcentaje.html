@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de porcentajes online gratis | MiniTools</title>
+
+<meta name="description"
+content="Calcula porcentajes, descuentos, aumentos y cambios porcentuales de forma rápida y gratuita.">
+
+<link rel="stylesheet"
+      href="assets/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<a href="index.html" class="logo">
+<span>MT</span>
+MiniTools
+</a>
+
+<nav>
+
+<a href="porcentaje.html">
+Porcentajes
+</a>
+
+<a href="notas.html">
+Notas
+</a>
+
+<a href="edad.html">
+Edad
+</a>
+
+</nav>
+
+</header>
+
+
+
+<main class="tool-page">
+
+
+<a href="index.html" class="back">
+← Volver a herramientas
+</a>
+
+
+<section class="tool-hero">
+
+<div class="badge">
+CALCULADORA
+</div>
+
+<h1>
+Calculadora de porcentajes
+</h1>
+
+<p>
+Calcula porcentajes, descuentos,
+aumentos y diferencias porcentuales
+en segundos.
+</p>
+
+</section>
+
+
+
+<section class="calculator">
+
+
+<h2>
+Porcentaje de un número
+</h2>
+
+
+<label>
+Porcentaje
+</label>
+
+<input
+id="porcentaje"
+type="number"
+placeholder="20"
+>
+
+
+<label>
+Número
+</label>
+
+<input
+id="numero"
+type="number"
+placeholder="150"
+>
+
+
+<button
+class="calc-button"
+onclick="calcularPorcentaje()"
+>
+
+Calcular
+
+</button>
+
+
+<div
+class="result"
+id="resultadoPorcentaje"
+>
+
+Introduce los datos para empezar.
+
+</div>
+
+
+
+<h2>
+Descuento
+</h2>
+
+
+<label>
+Precio original
+</label>
+
+<input
+id="precio"
+type="number"
+placeholder="100"
+>
+
+
+<label>
+Descuento (%)
+</label>
+
+<input
+id="descuento"
+type="number"
+placeholder="20"
+>
+
+
+<button
+class="calc-button"
+onclick="calcularDescuento()"
+>
+
+Calcular descuento
+
+</button>
+
+
+<div
+class="result"
+id="resultadoDescuento"
+>
+
+Introduce los datos para empezar.
+
+</div>
+
+
+
+<h2>
+Cambio porcentual
+</h2>
+
+
+<label>
+Valor inicial
+</label>
+
+<input
+id="valorInicial"
+type="number"
+placeholder="100"
+>
+
+
+<label>
+Valor final
+</label>
+
+<input
+id="valorFinal"
+type="number"
+placeholder="125"
+>
+
+
+<button
+class="calc-button"
+onclick="calcularCambio()"
+>
+
+Calcular cambio
+
+</button>
+
+
+<div
+class="result"
+id="resultadoCambio"
+>
+
+Introduce los datos para empezar.
+
+</div>
+
+
+</section>
+
+
+
+<section class="content">
+
+<h2>
+¿Cómo se calcula un porcentaje?
+</h2>
+
+<p>
+Para calcular un porcentaje de una cantidad,
+multiplica la cantidad por el porcentaje
+y divide el resultado entre 100.
+</p>
+
+<p>
+Por ejemplo, el 20% de 150 es 30.
+</p>
+
+
+<h2>
+Calculadora de descuentos
+</h2>
+
+<p>
+Introduce el precio original y el porcentaje
+de descuento para saber cuánto ahorras y
+cuál será el precio final.
+</p>
+
+
+<h2>
+Otras herramientas
+</h2>
+
+<div class="links">
+
+<a href="notas.html">
+Calculadora de notas →
+</a>
+
+<a href="edad.html">
+Calculadora de edad →
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+<span>
+© 2026 MiniTools
+</span>
+
+<div>
+
+<a href="privacidad.html">
+Privacidad
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+
+function calcularPorcentaje() {
+
+let porcentaje =
+Number(document.getElementById("porcentaje").value);
+
+let numero =
+Number(document.getElementById("numero").value);
+
+
+if (!Number.isFinite(porcentaje) ||
+    !Number.isFinite(numero)) {
+
+document.getElementById("resultadoPorcentaje")
+.innerHTML =
+"Introduce dos números válidos.";
+
+return;
+
+}
+
+
+let resultado =
+numero * porcentaje / 100;
+
+
+document.getElementById("resultadoPorcentaje")
+.innerHTML =
+
+"<strong>" +
+porcentaje +
+"% de " +
+numero +
+" = " +
+resultado +
+"</strong>";
+
+}
+
+
+
+function calcularDescuento() {
+
+let precio =
+Number(document.getElementById("precio").value);
+
+let descuento =
+Number(document.getElementById("descuento").value);
+
+
+if (!Number.isFinite(precio) ||
+    !Number.isFinite(descuento)) {
+
+document.getElementById("resultadoDescuento")
+.innerHTML =
+"Introduce dos números válidos.";
+
+return;
+
+}
+
+
+let ahorro =
+precio * descuento / 100;
+
+let final =
+precio - ahorro;
+
+
+document.getElementById("resultadoDescuento")
+.innerHTML =
+
+"Ahorro: <strong>" +
+ahorro.toFixed(2) +
+"</strong><br><br>" +
+
+"Precio final: <strong>" +
+final.toFixed(2) +
+"</strong>";
+
+}
+
+
+
+function calcularCambio() {
+
+let inicial =
+Number(document.getElementById("valorInicial").value);
+
+let final =
+Number(document.getElementById("valorFinal").value);
+
+
+if (!Number.isFinite(inicial) ||
+    !Number.isFinite(final) ||
+    inicial === 0) {
+
+document.getElementById("resultadoCambio")
+.innerHTML =
+"Introduce valores válidos.";
+
+return;
+
+}
+
+
+let cambio =
+((final - inicial) / inicial) * 100;
+
+
+let signo =
+cambio >= 0 ? "+" : "";
+
+
+document.getElementById("resultadoCambio")
+.innerHTML =
+
+"El cambio es: <strong>" +
+signo +
+cambio.toFixed(2) +
+"%</strong>";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
